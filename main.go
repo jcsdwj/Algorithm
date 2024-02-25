@@ -9,5 +9,5 @@ package main
 import "Algorithm/nowcoder"
 
 func main() {
-	nowcoder.TestBM101()
+	nowcoder.TestNC35()
 }
