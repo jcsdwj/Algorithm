@@ -8,6 +8,7 @@ package nowcoder
 
 import "math"
 
+// 有点难理解
 /**
  * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
  *
@@ -90,4 +91,22 @@ func solve2(n int, k int) int {
 		}
 	}
 	return dp[k][n]
+}
+
+// 计算k个棋子n次测出的最大层高
+func calF(k, n int) int {
+	// 如果只有一颗棋子和一次机会的情况
+	// 如果只有一次尝试机会或者棋子只有一个，则只能确定尝试机会+1数量的楼层哪一层棋子会碎
+	if k == 1 || n == 1 {
+		return n + 1
+	}
+	return calF(k-1, n-1) + calF(k, n-1) // 计算下面的楼层数+上面的楼层数
+}
+
+func solve3(n int, k int) int {
+	t := 1
+	for calF(k, t) < n+1 {
+		t++
+	}
+	return t
 }
