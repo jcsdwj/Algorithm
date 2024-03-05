@@ -24,6 +24,7 @@ import (
 func solve(n int, Tree_edge []*common.Interval, Edge_value []int) int {
 	// write code here
 	path := [][]int{}
+	//used := make([]bool, n)
 	for i := 0; i < n; i++ {
 		path = append(path, make([]int, n))
 	}
@@ -48,6 +49,20 @@ func solve(n int, Tree_edge []*common.Interval, Edge_value []int) int {
 	return 0
 }
 
-func dfs(path [][]int) {
+//先从任意一点出发找到离它最远的一个直径点x,
+//再从找到的最远直径点x出发找到离当前点最远的直径点y,
+//这样x到y就是这个树上的直径
 
+type Node struct {
+	start int
+	edges map[int]int
+}
+
+// 转换函数
+func trans(Tree_edge []*common.Interval, Edge_value []int) map[int]*Node {
+	length := len(Tree_edge)
+	for i := 0; i < length; i++ {
+
+	}
+	return nil
 }
