@@ -9,5 +9,5 @@ package main
 import "Algorithm/nowcoder"
 
 func main() {
-	nowcoder.SolveONT90()
+	nowcoder.QQ3()
 }
