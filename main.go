@@ -6,8 +6,9 @@
 
 package main
 
-import "Algorithm/nowcoder"
+import "Algorithm/leetCode"
 
 func main() {
-	nowcoder.QQ3()
+	// nowcoder.QQ3()
+	leetCode.TestLeetCode289()
 }
