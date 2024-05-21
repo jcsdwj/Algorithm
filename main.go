@@ -10,5 +10,5 @@ import "Algorithm/leetCode"
 
 func main() {
 	// nowcoder.QQ3()
-	leetCode.TestLeetCode2071()
+	leetCode.TestLeetCode322()
 }
