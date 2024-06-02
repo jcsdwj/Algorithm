@@ -65,6 +65,8 @@ func movesToStamp(stamp string, target string) []int {
 				// 最后印章在0
 				continue
 			}
+
+			// 看要求包含即可
 			if strings.HasPrefix(stamp, target[:start]) {
 				// 必须以这个开头
 				temp = append(temp, 0)
@@ -109,9 +111,13 @@ func movesToStamp2(stamp string, target string) []int {
 	n := len(stamp)
 	s := []byte(target)
 	var res []int
+
+	// start为序列的起始位置
 	var check = func(start int) {
 		for i := 0; i < len(stamp); i++ {
 			j := i + start
+
+			// 盖不了
 			if stamp[i] != s[j] && s[j] != '#' {
 				return
 			}
@@ -125,14 +131,20 @@ func movesToStamp2(stamp string, target string) []int {
 			s[j] = '#'
 		}
 		if flag {
+			// 添加印章
 			res = append(res, start)
 		}
 	}
 
+	// 为什么要正反各校验一次(存在先盖后再盖前的操作?)
+
+	// 正着盖
 	for i := 0; i+n-1 < len(s); i++ {
 		check(i)
 	}
+	// 反着盖
 	for i := len(s) - n; i >= 0; i-- {
+		// 后面的印章盖不到
 		check(i)
 	}
 	for i := range s {
